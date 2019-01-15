@@ -1,0 +1,104 @@
+Objekty:
+
+Player:
+    - hrad
+    - zed
+    - suroviny
+    - vyrobci surovin
+    - karty
+    - score
+
+
+AI inteligence:
+    - nahodne davani karet podle moznosti 
+
+
+Karty:
+balik
+lizani
+odebirani
+zahrani karty - provede se specialni efekt
+
+
+
+
+
+
+Objekty:
+Player
+Pocitac
+Karta
+Game Controller
+Menu Controller
+Tlacitka menu
+
+
+Tlacitka menu:
+    - nova hra/pokracovat
+    - multiplayer
+        - na jednom zarizeni
+        - pres sit
+        - bluetooth
+    - prehled a popis karet
+    - prehled bonusu (odznaku) a oceneni
+    - navod/ovladani
+    - autori
+    - konec
+
+    
+
+
+Vyrobci surovin:
+zednik
+vojak
+carodej
+
+suroviny:
+cihly
+zbrane
+krystaly
+
+
+karty:
+    cihly:
+        8|pridej zednika
+        1|postav zed +3
+        3|postav zed +6
+        12|postav zed +12
+        18|postav hrad +20
+        5|postav hrad +5
+        18|postav hrad +20
+        10|postav hrad +8 a sniz hrad nepritele -4
+        3|postav hrad +8 a sniz zed -4    -> podminkou je mit zed >= 4
+
+        32|postav +32 babylon
+
+    zbrane:
+        8|pridej vojaka
+        1|utok +2 lucistnik
+        2|utok +4 rytir
+        4|utok +6 jezdec
+        9|utok +12 ceta
+        16|utok +18 katapult
+        18|utok +10 vzdy za zdi
+        8|znic -4 suroviny saboter
+        15|ukradni 5 surovin zlodej
+
+        28|utok +32 smrtka
+
+    krystaly:
+        8|pridej carodeje
+        4|vycaruj +8 cihly
+        4|vycaruj +8 zbrane
+        4|vycaruj +8 krystaly
+        4|znic -8 cihly soupere
+        4|znic -8 zbrane soupere
+        4|znic -8 krystaly soupere
+
+        21|utok +20 drak
+        22|postav hrad +22 skritci
+
+        25|ukradni -1 odevseho prokleti
+
+
+
