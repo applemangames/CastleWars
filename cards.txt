@@ -1,3 +1,0 @@
-| typ karty | nazev          | cena | sila |
-| cihly     | Najmi zednika | 8    | +3   |
-| cihly     | 
