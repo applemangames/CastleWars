@@ -1,11 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Scenes/Card.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Card.gd" type="Script" id=1]
 [ext_resource path="res://Images/card back orange.png" type="Texture" id=2]
 [ext_resource path="res://Images/card front orange.png" type="Texture" id=3]
 
 [node name="Card" type="Node2D"]
-position = Vector2( 1.06859, -1.56498 )
 z_index = 100
 script = ExtResource( 1 )
 

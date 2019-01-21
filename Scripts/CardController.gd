@@ -8,9 +8,6 @@ export (int) var SPACE_BETWEEN_CARDS = 20
 var card_scene = load("res://Scenes/Card.tscn")
 
 
-
-
-
 func _ready():
     var card_deck = load_cards()
     
@@ -20,13 +17,11 @@ func _ready():
 
     var width = 70.0
     for i in CARDS_NUM:
-        var card = card_deck[randi()%31+1].duplicate()
+        var card = card_deck[randi()%29+1].duplicate()
         start_position.x += i + width + SPACE_BETWEEN_CARDS 
         card.position = start_position 
         print(card.position)
         add_child(card)
-
-
 
 
 
