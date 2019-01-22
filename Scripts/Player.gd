@@ -1,13 +1,25 @@
-extends KinematicBody2D
+extends Node2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
+export (String) var NAME = "Player1"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    pass # Replace with function body.
+    if name == "Player2":
+        change_tower_start_position("Tower")
+        change_status_start_position("Status")
+        
+func change_tower_start_position(nodeName):
+    var node = get_node("Tower")
+    var width = node.texture.get_width()
+    var window_width = get_viewport().get_texture().get_width()
+    node.position.x = window_width - node.position.x
+    node.position.y = node.position.y
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func change_status_start_position(nodeName):
+    var node = get_node("Status")
+    var image = node.get_node("StatusImage")
+    var width = image.texture.get_width() * image.scale.x
+    var window_width = get_viewport().get_texture().get_width()
+    node.position.x = window_width - (node.position.x + width)
+    node.position.y = node.position.y
