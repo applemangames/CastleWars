@@ -1,15 +1,17 @@
 extends Node2D
 
 
+export (int) var PLAYER_NUM = 1
 export (int) var CARDS_NUM = 8
 export (int) var SPACE_BETWEEN_CARDS = 20
 
 
 var card_scene = load("res://Scenes/Card.tscn")
-
+var all_cards = []
+var player_cards = []
 
 func _ready():
-    var card_deck = load_cards()
+    all_cards = load_cards()
     
     var start_position = $"/root/Game/CardsPosition".position
     start_position.x = -350
@@ -17,11 +19,12 @@ func _ready():
 
     var width = 70.0
     for i in CARDS_NUM:
-        var card = card_deck[randi()%29+1].duplicate()
+        var card = all_cards[randi()%29+1].duplicate()
         start_position.x += i + width + SPACE_BETWEEN_CARDS 
         card.position = start_position 
-        print(card.position)
+        card.player = PLAYER_NUM
         add_child(card)
+        player_cards.append(card)
 
 
 
