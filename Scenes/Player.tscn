@@ -3,8 +3,8 @@
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Images/tower1.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Status.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/CardController.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scripts/CardController.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Cards.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Cards.gd" type="Script" id=5]
 [ext_resource path="res://Images/background.png" type="Texture" id=6]
 
 [node name="Player" type="Node2D"]

@@ -3,7 +3,7 @@
 [ext_resource path="res://Images/card back orange.png" type="Texture" id=1]
 [ext_resource path="res://Images/card front orange.png" type="Texture" id=2]
 
-[node name="CardController" type="Node2D"]
+[node name="Cards" type="Node2D"]
 position = Vector2( 2.29633, -4.02045 )
 
 [node name="Deck" type="Sprite" parent="."]
