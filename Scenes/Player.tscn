@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Images/tower1.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Status.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/CardController.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/CardController.gd" type="Script" id=5]
+[ext_resource path="res://Images/background.png" type="Texture" id=6]
 
 [node name="Player" type="Node2D"]
 script = ExtResource( 1 )
@@ -18,10 +20,18 @@ position = Vector2( 46.5043, 96.6882 )
 
 [node name="Cards" parent="." instance=ExtResource( 4 )]
 position = Vector2( 426.507, 23.348 )
+script = ExtResource( 5 )
 
 [node name="CardDeck" type="HBoxContainer" parent="."]
-margin_left = 26.0
-margin_top = 412.0
-margin_right = 1003.0
+margin_left = 95.0
+margin_top = 440.0
+margin_right = 934.0
 margin_bottom = 583.0
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 504.368, 772.478 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
 

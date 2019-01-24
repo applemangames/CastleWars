@@ -13,18 +13,16 @@ var player_cards = []
 func _ready():
     all_cards = load_cards()
     
-    var start_position = $"/root/Game/CardsPosition".position
-    start_position.x = -350
+    var card_deck = $"./../CardDeck"
+    #start_position.x = -350
     #print(selected_card.name, selected_card.type)
 
-    var width = 70.0
+    
     for i in CARDS_NUM:
+        randomize()
         var card = all_cards[randi()%29+1].duplicate()
-        start_position.x += i + width + SPACE_BETWEEN_CARDS 
-        card.position = start_position 
-        card.player = PLAYER_NUM
-        add_child(card)
-        player_cards.append(card)
+        card.position.x += (card.get_width() + SPACE_BETWEEN_CARDS) * i
+        card_deck.add_child(card)
 
 
 
@@ -39,7 +37,7 @@ func create_card(card):
         "wizard":
             card.get_node("Front").texture = load("res://Images/card_front_purple.png")
             card.find_node("Currency").text = "crystals"
-    card.position = $"/root/Game/CardsPosition".position
+    #card.position = $"./../CardDeck".rect_position
     card.find_node("Name").text = card.name
     card.find_node("Price").text = card.price
     return card

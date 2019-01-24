@@ -12,8 +12,14 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 centered = false
 
-[node name="Played" type="Sprite" parent="."]
-position = Vector2( 97.1404, 5.70932 )
+[node name="Played" type="HBoxContainer" parent="."]
+margin_left = 99.0
+margin_top = 7.0
+margin_right = 178.0
+margin_bottom = 126.0
+
+[node name="PlayedImage" type="Sprite" parent="Played"]
+position = Vector2( -1.85957, -1.29068 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 centered = false
