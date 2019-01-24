@@ -6,7 +6,7 @@ extends Node2D
 var type = ""
 var price = ""
 var player = 0
-
+var is_played = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,9 +21,6 @@ func get_height():
 
 
 func _on_Button_pressed():
-    var played = $"/root/Game/".find_node("Played")
-    self.position = Vector2(0.0, 0.0)
-    get_parent().remove_child(self)
-    played.add_child(self)
-    
-    
+    if !is_played:
+        var controller = $"../..".find_node("Cards")
+        controller.play_card(self)
