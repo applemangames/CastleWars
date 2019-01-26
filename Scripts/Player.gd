@@ -3,6 +3,7 @@ extends Node2D
 export (String) var NAME = "Player1"
 var is_playing = false
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
     if name == "Player2":
