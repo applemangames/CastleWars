@@ -22,5 +22,5 @@ func get_height():
 
 func _on_Button_pressed():
     if !is_played:
-        var controller = $"../..".find_node("Cards")
+        var controller = $"../.."
         controller.play_card(self)

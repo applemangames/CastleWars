@@ -1,5 +1,4 @@
-extends Node2D
-
+extends "Player.gd"
 
 export (int) var PLAYER_NUM = 1
 export (int) var CARDS_NUM = 8
@@ -31,14 +30,16 @@ func play_card(card):
     
     
 func remove_from_deck(card):
-    var card_deck = $"./../CardDeck"
+    var card_deck = $"./CardDeck"
     var index = deck_cards.find(card)
     deck_cards.remove(index)
     card_deck.remove_child(card)
 
 
 func move_to_played(card):
-    var played = get_node("Played")
+    var played = get_node("Cards/Played")
+    
+    
     card.position = Vector2(0.0, 0.0)
     for child in played.get_children():
         played.remove_child(child)
@@ -48,8 +49,8 @@ func move_to_played(card):
     
     
 func add_new_card_to_deck(card_position):
-    #var deck = get_node("Deck")
-    var card_deck = $"./../CardDeck"
+    var deck = get_node("Deck")
+    var card_deck = $"./CardDeck"
     randomize()
     var card = all_cards[randi()%29+1].duplicate()
     card.position = card_position

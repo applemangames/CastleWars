@@ -18,7 +18,6 @@ __meta__ = {
 [node name="Player1" parent="." instance=ExtResource( 3 )]
 
 [node name="Player2" parent="." instance=ExtResource( 3 )]
-NAME = "Player2"
 
 [node name="background2" type="Sprite" parent="."]
 visible = false

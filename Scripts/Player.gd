@@ -1,6 +1,5 @@
 extends Node2D
 
-
 export (String) var NAME = "Player1"
 var is_playing = false
 
@@ -31,3 +30,5 @@ func change_status_start_position(nodeName):
     var window_width = get_viewport().get_texture().get_width()
     node.position.x = window_width - (node.position.x + width)
     node.position.y = node.position.y
+    
+    
