@@ -4,11 +4,7 @@
 [ext_resource path="res://Images/card front orange.png" type="Texture" id=2]
 [ext_resource path="res://Images/card back orange.png" type="Texture" id=3]
 
-[node name="Card" type="Node2D" groups=[
-"CardDeck",
-"AllCards",
-"PlayedCards",
-]]
+[node name="Card" type="Node2D"]
 z_index = 100
 script = ExtResource( 1 )
 

@@ -7,6 +7,7 @@ var type = ""
 var price = ""
 var player = 0
 var is_played = false
+var deck_position
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
