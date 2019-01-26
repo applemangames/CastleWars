@@ -11,9 +11,10 @@ func _ready():
         change_status_start_position("Status")
         
         
+        
 func _process(delta):
-    if is_playing == false:
-        get_node("CardDeck").visible = false
+    if is_playing == true:
+        get_node("CardDeck").visible = true
       
       
 func change_tower_start_position(nodeName):

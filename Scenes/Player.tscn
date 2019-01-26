@@ -16,6 +16,7 @@ position = Vector2( 46.5043, 96.6882 )
 position = Vector2( 426.507, 23.348 )
 
 [node name="CardDeck" type="HBoxContainer" parent="."]
+visible = false
 margin_left = 95.0
 margin_top = 440.0
 margin_right = 934.0

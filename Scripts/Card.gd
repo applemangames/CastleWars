@@ -8,6 +8,9 @@ var price = ""
 var player = 0
 var is_played = false
 var deck_position
+var move_to_position
+var move_from_position
+var moving_type = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,7 +22,10 @@ func get_width():
 func get_height():
     return get_node("Front").texture.get_height() * get_node("Front").scale.y
 
-
+func see():
+    $"Front".visible = true
+    $"Back".visible = false
+    $"Description".visible = true
 
 func _on_Button_pressed():
     if !is_played:

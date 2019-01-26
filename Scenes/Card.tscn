@@ -14,17 +14,18 @@ margin_bottom = 122.0
 shortcut_in_tooltip = false
 
 [node name="Front" type="Sprite" parent="."]
+visible = false
 position = Vector2( 43.6202, 60.8665 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 
 [node name="Back" type="Sprite" parent="."]
-visible = false
 position = Vector2( 44.2134, 62.3377 )
 scale = Vector2( 0.5, 0.504472 )
 texture = ExtResource( 3 )
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Description" type="Node2D" parent="."]
+visible = false
 position = Vector2( -0.36377, 0.363773 )
 scale = Vector2( 1.5, 1.5 )
 z_index = 10
@@ -32,7 +33,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Name" type="Label" parent="Node2D"]
+[node name="Name" type="Label" parent="Description"]
 margin_top = 42.0
 margin_right = 58.0
 margin_bottom = 73.0
@@ -43,12 +44,12 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="Node2D" type="Node2D" parent="Node2D/Name"]
+[node name="Node2D" type="Node2D" parent="Description/Name"]
 visible = false
 position = Vector2( 105.682, -56.5404 )
 scale = Vector2( 0.6, 0.6 )
 
-[node name="Action" type="Label" parent="Node2D/Name/Node2D"]
+[node name="Action" type="Label" parent="Description/Name/Node2D"]
 margin_left = -153.528
 margin_top = 127.398
 margin_right = -88.5278
@@ -56,7 +57,7 @@ margin_bottom = 147.398
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Utok +3"
 
-[node name="Price" type="Label" parent="Node2D"]
+[node name="Price" type="Label" parent="Description"]
 margin_left = 8.81735
 margin_top = 8.02993
 margin_right = 28.8174
@@ -66,7 +67,7 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "8"
 valign = 2
 
-[node name="Currency" type="Label" parent="Node2D/Price"]
+[node name="Currency" type="Label" parent="Description/Price"]
 margin_left = 16.2486
 margin_top = 5.09284
 margin_right = 72.2486
