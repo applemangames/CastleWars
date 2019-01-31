@@ -17,14 +17,14 @@ func _ready():
         var card_position = Vector2(0.0, 0.0)
         var card_width = all_cards[0].get_width()
         card_position.x = (card_width + SPACE_BETWEEN_CARDS) * i 
-        add_new_card_to_deck(card_position + $"CardDeck".rect_position)
+        add_new_card_to_deck(card_position + $"CardDeck".rect_position, false)
         
 
 func _process(delta):
     for card in moving_cards:
         var pos = card.move_to_position
-        var diff_pos = pos - card.position 
-        
+        var diff_pos = pos - card.position
+
         if round(pos.x) != round(card.position.x) or round(pos.y) != round(card.position.y):
             card.position.x += diff_pos.x * delta * 7
             card.position.y += diff_pos.y * delta * 7
@@ -32,14 +32,13 @@ func _process(delta):
             moving_cards.erase(card)
             if card.moving_type == "to_played":
                 add_card_into_played(card)
-                add_new_card_to_deck(card.move_from_position)
+                add_new_card_to_deck(card.move_from_position, true)
             if card.moving_type == "to_deck":
                 remove_child(card)
                 deck_cards.append(card)
                 card.position -= $"CardDeck".rect_position
                 $"CardDeck".add_child(card)
                 card.see()
-
 
 func play_card(card):
     card.is_played = true
@@ -63,8 +62,8 @@ func move_to_played(card):
     card.move_to_position = goal_pos
     card.moving_type = "to_played"
     moving_cards.append(card)
+        
     
-
 func add_card_into_played(card):
     var played = get_node("Cards/Played")
     remove_child(card)
@@ -76,8 +75,8 @@ func add_card_into_played(card):
     played.add_child(card)
     played_cards.append(card)
     
-    
-func add_new_card_to_deck(card_position):
+
+func add_new_card_to_deck(card_position, see):
     randomize()
     var card = all_cards[randi()%29+1].duplicate()
     card.position = $"Cards".position
@@ -86,5 +85,6 @@ func add_new_card_to_deck(card_position):
     card.move_to_position = card_position
     card.moving_type = "to_deck"
     moving_cards.append(card)
+    if see == true: card.see()
     
   
