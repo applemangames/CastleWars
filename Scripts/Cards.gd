@@ -10,15 +10,17 @@ var deck_cards = []
 var played_cards = []
 var moving_cards = []
 
-func _ready():    
+
+func _ready(): 
     all_cards = $"/root/Game/".load_cards()
     
     for i in CARDS_NUM:
         var card_position = Vector2(0.0, 0.0)
         var card_width = all_cards[0].get_width()
         card_position.x = (card_width + SPACE_BETWEEN_CARDS) * i 
-        add_new_card_to_deck(card_position + $"CardDeck".rect_position, false)
+        add_new_card_to_deck(card_position + $"CardDeck".rect_position, true)
         
+    
 
 func _process(delta):
     for card in moving_cards:
@@ -32,13 +34,16 @@ func _process(delta):
             moving_cards.erase(card)
             if card.moving_type == "to_played":
                 add_card_into_played(card)
-                add_new_card_to_deck(card.move_from_position, true)
+                add_new_card_to_deck(card.move_from_position, false)
             if card.moving_type == "to_deck":
                 remove_child(card)
                 deck_cards.append(card)
                 card.position -= $"CardDeck".rect_position
                 $"CardDeck".add_child(card)
-                card.see()
+                card.show()
+                if !card.on_start_game:
+                    $"/root/Game/".change_player()
+                
 
 func play_card(card):
     card.is_played = true
@@ -76,7 +81,7 @@ func add_card_into_played(card):
     played_cards.append(card)
     
 
-func add_new_card_to_deck(card_position, see):
+func add_new_card_to_deck(card_position, on_start_game):
     randomize()
     var card = all_cards[randi()%29+1].duplicate()
     card.position = $"Cards".position
@@ -85,6 +90,12 @@ func add_new_card_to_deck(card_position, see):
     card.move_to_position = card_position
     card.moving_type = "to_deck"
     moving_cards.append(card)
-    if see == true: card.see()
+    card.on_start_game = on_start_game
+    if !on_start_game: 
+        card.show()
     
-  
+    
+func show():
+    for card in deck_cards:
+        card.show()
+ 

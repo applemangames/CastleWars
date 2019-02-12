@@ -10,13 +10,8 @@ func _ready():
         change_tower_start_position("Tower")
         change_status_start_position("Status")
         
-        
-        
-func _process(delta):
-    if is_playing == true:
-        get_node("CardDeck").visible = true
-      
-      
+
+
 func change_tower_start_position(nodeName):
     var node = get_node("Tower")
     var width = node.texture.get_width()
@@ -34,3 +29,11 @@ func change_status_start_position(nodeName):
     node.position.y = node.position.y
     
     
+func show_cards():
+    is_playing = true
+    get_node("CardDeck").visible = true
+    
+    
+func hide_cards():
+    is_playing = false
+    get_node("CardDeck").visible = false

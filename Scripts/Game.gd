@@ -2,15 +2,26 @@ extends Node2D
 
 
 var card_scene = load("res://Scenes/Card.tscn")
+var playing_player = 1
+var played = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    get_node("Player1").is_playing = true
-    #get_node("Player1").all_cards = load_cards()
-    #get_node("Player2").all_cards = load_cards()
+    $Player1.show_cards()
 
 
-
+func change_player():        
+    if playing_player == 1:
+        print("Now is playing player 2.")
+        playing_player = 2
+        $Player2.show_cards()
+        $Player1.hide_cards()
+    else: if playing_player == 2:
+        print("Now is playing player 1.")
+        playing_player = 1
+        $Player1.show_cards()
+        $Player2.hide_cards()
+        
 
 func create_card(card):
     match card.type:
@@ -48,3 +59,5 @@ func load_cards():
         card_deck.append(create_card(card))
     file.close()
     return card_deck
+
+

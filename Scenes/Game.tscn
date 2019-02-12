@@ -27,3 +27,4 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[connection signal="ready" from="." to="." method="_on_Game_ready"]
