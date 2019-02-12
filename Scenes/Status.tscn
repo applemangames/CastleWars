@@ -15,7 +15,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 2
 custom_constants/separation = 5
 
-[node name="BrickNum" type="Label" parent="VBoxContainer"]
+[node name="BuilderNum" type="Label" parent="VBoxContainer"]
 margin_right = 25.0
 margin_bottom = 14.0
 text = "2"
@@ -24,15 +24,12 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="BuilderNum" type="Label" parent="VBoxContainer"]
+[node name="BrickNum" type="Label" parent="VBoxContainer"]
 margin_top = 19.0
 margin_right = 25.0
 margin_bottom = 33.0
 text = "4"
 align = 1
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="SoldierNum" type="Label" parent="VBoxContainer"]
 margin_top = 38.0

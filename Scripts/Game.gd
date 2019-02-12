@@ -11,18 +11,20 @@ func _ready():
 
 
 func change_player():        
-    if playing_player == 1:
-        print("Now is playing player 2.")
+    if playing_player != 2:
+        print("Now is playing player 1.")
         playing_player = 2
+        $Player2/Status.produce_all_materials()
         $Player2.show_cards()
         $Player1.hide_cards()
-    else: if playing_player == 2:
-        print("Now is playing player 1.")
+    else: if playing_player != 1:
+        print("Now is playing player 2.")
         playing_player = 1
+        $Player1/Status.produce_all_materials()
         $Player1.show_cards()
         $Player2.hide_cards()
-        
 
+    
 func create_card(card):
     match card.type:
         "builder":
