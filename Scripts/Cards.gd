@@ -60,7 +60,7 @@ func remove_from_deck(card):
 func move_to_played(card):
     add_child(card)
     
-    var goal_pos = $"Cards/Played".position + $"Cards".position
+    var goal_pos = $"/root/Game/Cards/Played".position + $"/root/Game/Cards".position
     card.move_from_position = card.position
     card.position += $"CardDeck".rect_position 
     card.move_from_position = card.position
@@ -70,7 +70,7 @@ func move_to_played(card):
         
     
 func add_card_into_played(card):
-    var played = get_node("Cards/Played")
+    var played = get_node("/root/Game/Cards/Played")
     remove_child(card)
     card.position = Vector2(0.0, 0.0)
     for child in played.get_children():
@@ -84,7 +84,7 @@ func add_card_into_played(card):
 func add_new_card_to_deck(card_position, on_start_game):
     randomize()
     var card = all_cards[randi()%29+1].duplicate()
-    card.position = $"Cards".position
+    card.position = $"/root/Game/Cards".position
     add_child(card)
     card.move_from_position = card.position
     card.move_to_position = card_position
@@ -94,8 +94,4 @@ func add_new_card_to_deck(card_position, on_start_game):
     if !on_start_game: 
         card.show()
     
-    
-func show():
-    for card in deck_cards:
-        card.show()
- 
+     
