@@ -8,17 +8,18 @@ var played = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
     $Player1.show_cards()
+    $Player2.is_human = false
 
 
 func change_player():        
     if playing_player != 2:
-        print("Now is playing player 1.")
+        print("Now is playing player 2.")
         playing_player = 2
         $Player2/Status.produce_all_materials()
         $Player2.show_cards()
         $Player1.hide_cards()
     else: if playing_player != 1:
-        print("Now is playing player 2.")
+        print("Now is playing player 1.")
         playing_player = 1
         $Player1/Status.produce_all_materials()
         $Player1.show_cards()
@@ -42,7 +43,7 @@ func create_card(card):
     return card
 
 
-func load_cards():
+func load_cards(for_human):
     var file = File.new()
     file.open("res://Configs/cards.txt", File.READ)
     var card_deck = []
@@ -58,6 +59,7 @@ func load_cards():
         card.name = line[1].strip_edges()
         card.type = line[2].strip_edges()
         card.price = line[3].strip_edges()
+        card.is_human_card = for_human
         card_deck.append(create_card(card))
     file.close()
     return card_deck

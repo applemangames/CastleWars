@@ -3,6 +3,7 @@ extends Node2D
 export (String) var NAME = "Player1"
 var is_playing = false
 var is_human = true
+var lock_cards = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -32,10 +33,13 @@ func change_status_start_position(nodeName):
 func show_cards():
     is_playing = true
     get_node("CardDeck").visible = true
+    lock_cards = false
     
     
 func hide_cards():
     is_playing = false
     get_node("CardDeck").visible = false
+    lock_cards = true
     
 
+    

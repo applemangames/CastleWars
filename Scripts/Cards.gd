@@ -11,8 +11,9 @@ var played_cards = []
 var moving_cards = []
 
 
+
 func _ready(): 
-    all_cards = $"/root/Game/".load_cards()
+    all_cards = $"/root/Game/".load_cards(is_human)
     
     for i in CARDS_NUM:
         var card_position = Vector2(0.0, 0.0)
@@ -24,25 +25,29 @@ func _ready():
 
 func _process(delta):
     for card in moving_cards:
-        var pos = card.move_to_position
-        var diff_pos = pos - card.position
+        var to_pos = card.move_to_position
+        var diff_pos = to_pos - card.position
 
-        if round(pos.x) != round(card.position.x) or round(pos.y) != round(card.position.y):
-            card.position.x += diff_pos.x * delta * 7
-            card.position.y += diff_pos.y * delta * 7
+        if round(to_pos.x) != round(card.position.x) or round(to_pos.y) != round(card.position.y):
+            card.position.x += diff_pos.x * delta * 8
+            card.position.y += diff_pos.y * delta * 8
         else:
-            moving_cards.erase(card)
             if card.moving_type == "to_played":
                 add_card_into_played(card)
                 add_new_card_to_deck(card.move_from_position, false)
+                
+                #moving_cards.erase(card)
             if card.moving_type == "to_deck":
                 remove_child(card)
                 deck_cards.append(card)
                 card.position -= $"CardDeck".rect_position
                 $"CardDeck".add_child(card)
+                
                 card.show()
                 if !card.on_start_game:
                     $"/root/Game/".change_player()
+                    
+            moving_cards.erase(card)
                 
 
 func play_card(card):
@@ -74,6 +79,9 @@ func add_card_into_played(card):
     remove_child(card)
     card.position = Vector2(0.0, 0.0)
     for child in played.get_children():
+        child.z_index += 10
+        child.is_played = false
+        #child.moving_type = ""
         played.remove_child(child)
         
     card.z_index -= 10
@@ -82,13 +90,26 @@ func add_card_into_played(card):
     
 
 func add_new_card_to_deck(card_position, on_start_game):
-    randomize()
-    var card = all_cards[randi()%29+1].duplicate()
+    
+    if all_cards.size() == 1:
+        while played_cards.size() > 1:
+            var card2 = played_cards.pop_front()
+            card2.is_played = false
+            card2.on_start_game = false
+            all_cards.append(card2)
+            
+    #randomize()
+    all_cards.shuffle()
+    var card = all_cards.pop_front()
+    print(all_cards)
+    print(moving_cards)
+    
     card.position = $"/root/Game/Cards".position
     add_child(card)
     card.move_from_position = card.position
     card.move_to_position = card_position
     card.moving_type = "to_deck"
+    
     moving_cards.append(card)
     card.on_start_game = on_start_game
     if !on_start_game: 
