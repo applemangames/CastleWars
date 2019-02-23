@@ -8,6 +8,10 @@
 
 [node name="Player" type="Node2D"]
 script = ExtResource( 1 )
+NAME = null
+PLAYER_NUM = null
+CARDS_NUM = null
+SPACE_BETWEEN_CARDS = null
 
 [node name="Status" parent="." instance=ExtResource( 2 )]
 position = Vector2( 46.5043, 96.6882 )
