@@ -99,8 +99,6 @@ func add_new_card_to_deck(card_position, on_start_game):
     randomize()
     all_cards.shuffle()
     var card = all_cards.pop_front()
-    print(all_cards)
-    print(moving_cards)
     
     card.position = $"/root/Game/Cards".position
     add_child(card)
