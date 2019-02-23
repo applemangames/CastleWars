@@ -37,7 +37,6 @@ func _process(delta):
                 add_new_card_to_deck(card.move_from_position, false)
                 card.moving_type = ""
                 
-                #moving_cards.erase(card)
             if card.moving_type == "to_deck":
                 remove_child(card)
                 deck_cards.append(card)
@@ -86,7 +85,6 @@ func add_card_into_played(card):
     for child in played.get_children():
         child.z_index += 10
         child.is_played = false
-        #child.moving_type = ""
         played.remove_child(child)
         
     card.z_index -= 10
@@ -95,14 +93,10 @@ func add_card_into_played(card):
     
 
 func add_new_card_to_deck(card_position, on_start_game):
-    
-    if all_cards.size() == 0:
-        while played_cards.size() > 1:
-            var card2 = played_cards.pop_front()
-            card2.reset_variables()
-            all_cards.append(card2)
+    if all_cards.empty():
+        move_played_cards_into_all_cards()
             
-    #randomize()
+    randomize()
     all_cards.shuffle()
     var card = all_cards.pop_front()
     print(all_cards)
@@ -119,4 +113,10 @@ func add_new_card_to_deck(card_position, on_start_game):
     if !on_start_game: 
         card.show()
     
-     
+    
+func move_played_cards_into_all_cards():
+    while played_cards.size() > 1:
+        var card2 = played_cards.pop_front()
+        card2.reset_variables()
+        all_cards.append(card2)
+    
