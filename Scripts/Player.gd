@@ -30,10 +30,30 @@ func change_status_start_position(nodeName):
     node.position.y = node.position.y
     
     
+        
 func show_cards():
     is_playing = true
     get_node("CardDeck").visible = true
     lock_cards = false
+    check_cards_prices()
+    
+    
+func check_cards_prices():
+    var status = get_node("Status")
+    print($"./Status/VBoxContainer/BrickNum".text)
+    
+    var material_num = {
+        "builder": int($"./Status/VBoxContainer/BrickNum".text),
+        "soldier": int($"./Status/VBoxContainer/WeaponNum".text),
+        "wizard": int($"./Status/VBoxContainer/CrystalNum".text)
+    }
+    
+    for card in get_node("CardDeck").get_children():
+        print(card)
+        if card.price >= material_num[card.type]:
+            card.disable()
+        else:
+            card.enable()
     
     
 func hide_cards():

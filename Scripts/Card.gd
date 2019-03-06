@@ -3,8 +3,8 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var type = ""
-var price = ""
+var type 
+var price 
 var player = 0
 var is_played = false
 var deck_position
@@ -13,9 +13,9 @@ var move_from_position
 var moving_type = ""
 var on_start_game = false
 var is_human_card = true
+var disable = false
 
 
-    
 func get_width():
     return get_node("Front").texture.get_width() * get_node("Front").scale.x
     
@@ -36,6 +36,16 @@ func show():
         $"Front".visible = true
         $"Back".visible = false
         $"Description".visible = true
+        
+        
+func disable():
+    $"./Front".modulate = Color(0.5,0.5,0.5,1)
+    self.disable = true
+    
+func enable():
+    $"./Front".modulate = Color(1,1,1,1)
+    self.disable = false
+    
     
 func _on_Button_pressed():
     var controller = $"../.."
@@ -43,7 +53,7 @@ func _on_Button_pressed():
         controller = $".."
         controller.lock_cards = false
     
-    if !is_played and !controller.lock_cards and moving_type != "to_deck":
+    if !is_played and !controller.lock_cards and moving_type != "to_deck" and !disable:
         controller.play_card(self)
         controller.lock_cards = true
         

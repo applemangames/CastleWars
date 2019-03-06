@@ -50,8 +50,6 @@ func _process(delta):
                     $"/root/Game/".change_player()
                     
             moving_cards.erase(card)
-       
-        
                 
 
 func play_card(card):
@@ -117,4 +115,5 @@ func move_played_cards_into_all_cards():
         var card2 = played_cards.pop_front()
         card2.reset_variables()
         all_cards.append(card2)
+        
     
