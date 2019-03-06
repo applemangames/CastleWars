@@ -42,6 +42,7 @@ func _process(delta):
                 deck_cards.append(card)
                 card.position -= $"CardDeck".rect_position
                 $"CardDeck".add_child(card)
+                check_cards_prices([card])
                 card.show()
                 card.moving_type = ""
                 card.position += Vector2(0.1, 0.1) 
@@ -116,4 +117,34 @@ func move_played_cards_into_all_cards():
         card2.reset_variables()
         all_cards.append(card2)
         
+    
+    
+func show_cards():
+    is_playing = true
+    get_node("CardDeck").visible = true
+    lock_cards = false
+    check_cards_prices(deck_cards)
+    
+    
+func check_cards_prices(cards):
+    var status = get_node("Status")
+    print($"./Status/VBoxContainer/BrickNum".text)
+    
+    var material_num = {
+        "builder": int($"./Status/VBoxContainer/BrickNum".text),
+        "soldier": int($"./Status/VBoxContainer/WeaponNum".text),
+        "wizard": int($"./Status/VBoxContainer/CrystalNum".text)
+    }
+    
+    for card in cards:
+        if card.price > material_num[card.type]:
+            card.disable()
+        else:
+            card.enable()
+    
+    
+func hide_cards():
+    is_playing = false
+    get_node("CardDeck").visible = false
+    lock_cards = true
     
