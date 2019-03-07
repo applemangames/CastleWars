@@ -39,7 +39,7 @@ func show():
         
         
 func disable():
-    $"./Front".modulate = Color(0.5,0.5,0.5,1)
+    $"./Front".modulate = Color(0.3,0.3,0.3,1)
     self.disable = true
     
 func enable():
