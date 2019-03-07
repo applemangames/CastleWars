@@ -5,6 +5,7 @@ extends Node2D
 # var b = "text"
 var type 
 var price 
+var currency
 var player = 0
 var is_played = false
 var deck_position

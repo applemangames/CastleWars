@@ -31,12 +31,15 @@ func create_card(card):
         "builder":
             card.get_node("Front").texture = load("res://Images/card_front_brown.png")
             card.find_node("Currency").text = "bricks"
+            card.currency = "Brick"
         "soldier":
             card.get_node("Front").texture = load("res://Images/card_front_green.png")
             card.find_node("Currency").text = "weapons"
+            card.currency = "Weapon"
         "wizard":
             card.get_node("Front").texture = load("res://Images/card_front_purple.png")
             card.find_node("Currency").text = "crystals"
+            card.currency = "Crystal"
     #card.position = $"./../CardDeck".rect_position
     card.find_node("Name").text = card.name
     card.find_node("Price").text = str(card.price)

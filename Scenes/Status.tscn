@@ -48,7 +48,7 @@ margin_bottom = 71.0
 text = "4"
 align = 1
 
-[node name="MageNum" type="Label" parent="VBoxContainer"]
+[node name="WizardNum" type="Label" parent="VBoxContainer"]
 margin_top = 76.0
 margin_right = 25.0
 margin_bottom = 90.0

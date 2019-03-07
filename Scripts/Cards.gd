@@ -75,6 +75,7 @@ func move_to_played(card):
     card.move_to_position = goal_pos
     card.moving_type = "to_played"
     moving_cards.append(card)
+    $"./Status".remove_material(card.currency, card.price)
         
     
 func add_card_into_played(card):
@@ -126,10 +127,7 @@ func show_cards():
     check_cards_prices(deck_cards)
     
     
-func check_cards_prices(cards):
-    var status = get_node("Status")
-    print($"./Status/VBoxContainer/BrickNum".text)
-    
+func check_cards_prices(cards):    
     var material_num = {
         "builder": int($"./Status/VBoxContainer/BrickNum".text),
         "soldier": int($"./Status/VBoxContainer/WeaponNum".text),
@@ -141,8 +139,8 @@ func check_cards_prices(cards):
             card.disable()
         else:
             card.enable()
-    
-    
+
+   
 func hide_cards():
     is_playing = false
     get_node("CardDeck").visible = false
