@@ -38,7 +38,7 @@ func show():
     if is_human_card:
         $"Front".visible = true
         $"Back".visible = false
-        $"Description".visible = true
+        $"Front/Description".visible = true
         
         
 func disable():
@@ -58,7 +58,13 @@ func _on_Button_pressed():
     
     if controller.drop_mode:
         drop = !drop
-        position.y -= 20 * int(drop)
+        var animation = find_node("AnimationPlayer")
+        if drop:
+            animation.play("SelectCard", -1, 10.0)
+        else:
+            animation.playback_speed = 10.0
+            animation.play_backwards("SelectCard")
+            
     
     if (
         !is_played and !controller.drop_mode and !disable and

@@ -1,8 +1,24 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Card.gd" type="Script" id=1]
 [ext_resource path="res://Images/card front orange.png" type="Texture" id=2]
 [ext_resource path="res://Images/card back orange.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "SelectCard"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -20 ) ]
+}
 
 [node name="Card" type="Node2D"]
 z_index = 100
@@ -14,29 +30,24 @@ margin_bottom = 122.0
 shortcut_in_tooltip = false
 
 [node name="Front" type="Sprite" parent="."]
-visible = false
-position = Vector2( 43.6202, 60.8665 )
+position = Vector2( 0.103394, 0.191719 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
+centered = false
 
-[node name="Back" type="Sprite" parent="."]
-position = Vector2( 44.2134, 62.3377 )
-scale = Vector2( 0.5, 0.504472 )
-texture = ExtResource( 3 )
-
-[node name="Description" type="Node2D" parent="."]
-visible = false
-position = Vector2( -0.36377, 0.363773 )
-scale = Vector2( 1.5, 1.5 )
+[node name="Description" type="Node2D" parent="Front"]
+position = Vector2( -1.66187, -9.11401 )
+scale = Vector2( 3, 3 )
 z_index = 10
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Name" type="Label" parent="Description"]
-margin_top = 42.0
-margin_right = 58.0
-margin_bottom = 73.0
+[node name="Name" type="Label" parent="Front/Description"]
+margin_left = 0.485026
+margin_top = 28.9041
+margin_right = 58.485
+margin_bottom = 59.9041
 size_flags_horizontal = 5
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Conjure Crystals"
@@ -44,20 +55,20 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="Node2D" type="Node2D" parent="Description/Name"]
-visible = false
+[node name="Node2D" type="Node2D" parent="Front/Description/Name"]
 position = Vector2( 105.682, -56.5404 )
 scale = Vector2( 0.6, 0.6 )
 
-[node name="Action" type="Label" parent="Description/Name/Node2D"]
-margin_left = -153.528
-margin_top = 127.398
-margin_right = -88.5278
-margin_bottom = 147.398
+[node name="Action" type="Label" parent="Front/Description/Name/Node2D"]
+margin_left = -152.72
+margin_top = 154.075
+margin_right = -87.7194
+margin_bottom = 174.075
+rect_pivot_offset = Vector2( 50.6652, 17.507 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Utok +3"
 
-[node name="Price" type="Label" parent="Description"]
+[node name="Price" type="Label" parent="Front/Description"]
 margin_left = 8.81735
 margin_top = 8.02993
 margin_right = 28.8174
@@ -67,7 +78,7 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "8"
 valign = 2
 
-[node name="Currency" type="Label" parent="Description/Price"]
+[node name="Currency" type="Label" parent="Front/Description/Price"]
 margin_left = 16.2486
 margin_top = 5.09284
 margin_right = 72.2486
@@ -78,5 +89,14 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "weapons"
 align = 1
 valign = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Front"]
+anims/SelectCard = SubResource( 1 )
+
+[node name="Back" type="Sprite" parent="."]
+visible = false
+position = Vector2( 44.2134, 62.3377 )
+scale = Vector2( 0.5, 0.504472 )
+texture = ExtResource( 3 )
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
