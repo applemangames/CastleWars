@@ -74,7 +74,10 @@ func load_cards(for_human):
 
 func _on_DropCardsButton_pressed():
     var label = find_node("DropCardsLabel")
+    if !label.visible:
+        find_node("Player"+str(playing_player)).select_cards()
+    else:
+        find_node("Player"+str(playing_player)).drop_cards()
+    
     label.visible = !label.visible
-    match playing_player:
-        1: $Player1.drop_cards()
-        2: $Player2.drop_cards()
+        

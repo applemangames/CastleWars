@@ -9,6 +9,7 @@ var all_cards = []
 var deck_cards = []
 var played_cards = []
 var moving_cards = []
+var drop_mode = false
 
 
 
@@ -147,5 +148,11 @@ func hide_cards():
     lock_cards = true
     
     
+func select_cards():
+    drop_mode = true
+    for card in deck_cards:
+        card.enable()
+ 
 func drop_cards():
-    pass
+    drop_mode = false
+    check_cards_prices(deck_cards)

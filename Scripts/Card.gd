@@ -15,7 +15,9 @@ var moving_type = ""
 var on_start_game = false
 var is_human_card = true
 var disable = false
+var drop = false
 
+   
 
 func get_width():
     return get_node("Front").texture.get_width() * get_node("Front").scale.x
@@ -54,7 +56,14 @@ func _on_Button_pressed():
         controller = $".."
         controller.lock_cards = false
     
-    if !is_played and !controller.lock_cards and moving_type != "to_deck" and !disable:
+    if controller.drop_mode:
+        drop = !drop
+        position.y -= 20 * int(drop)
+    
+    if (
+        !is_played and !controller.drop_mode and !disable and
+        !controller.lock_cards and moving_type != "to_deck"
+    ):
         controller.play_card(self)
         controller.lock_cards = true
         
