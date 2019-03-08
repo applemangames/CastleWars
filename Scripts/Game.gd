@@ -12,23 +12,22 @@ func _ready():
     $Player2.is_human = false
 
 
+func toogle(player1, player2):
+    print("Now is playing " + player2.NAME)
+    player2.get_node("Status").produce_all_materials()
+    player2.show_cards()
+    player1.hide_cards()
+    player2.active()
+    player1.deactive()
+    
+
 func change_player():        
-    if playing_player != 2:
-        print("Now is playing player 2.")
+    if playing_player == 1:
         playing_player = 2
-        $Player2/Status.produce_all_materials()
-        $Player2.show_cards()
-        $Player1.hide_cards()
-        $Player2.active()
-        $Player1.deactive()
-    else: if playing_player != 1:
-        print("Now is playing player 1.")
+        toogle(find_node("Player1"), find_node("Player2"))
+    else: if playing_player == 2:
         playing_player = 1
-        $Player1/Status.produce_all_materials()
-        $Player1.show_cards()
-        $Player2.hide_cards()
-        $Player1.active()
-        $Player2.deactive()
+        toogle(find_node("Player2"), find_node("Player1"))
 
 
 func create_card(card):
