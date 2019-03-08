@@ -8,6 +8,7 @@ var played = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
     $Player1.show_cards()
+    $Player1.active()
     $Player2.is_human = false
 
 
@@ -18,12 +19,16 @@ func change_player():
         $Player2/Status.produce_all_materials()
         $Player2.show_cards()
         $Player1.hide_cards()
+        $Player2.active()
+        $Player1.deactive()
     else: if playing_player != 1:
         print("Now is playing player 1.")
         playing_player = 1
         $Player1/Status.produce_all_materials()
         $Player1.show_cards()
         $Player2.hide_cards()
+        $Player1.active()
+        $Player2.deactive()
 
 
 func create_card(card):

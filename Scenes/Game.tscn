@@ -20,8 +20,10 @@ __meta__ = {
 position = Vector2( 425.323, 84.6199 )
 
 [node name="Player1" parent="." instance=ExtResource( 4 )]
+NAME = "Player 1"
 
 [node name="Player2" parent="." instance=ExtResource( 4 )]
+NAME = "Player 2"
 
 [node name="background2" type="Sprite" parent="."]
 visible = false
