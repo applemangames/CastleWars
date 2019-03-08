@@ -146,3 +146,6 @@ func hide_cards():
     get_node("CardDeck").visible = false
     lock_cards = true
     
+    
+func drop_cards():
+    pass

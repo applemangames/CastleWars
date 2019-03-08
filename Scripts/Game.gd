@@ -25,7 +25,7 @@ func change_player():
         $Player1.show_cards()
         $Player2.hide_cards()
 
-    
+
 func create_card(card):
     match card.type:
         "builder":
@@ -66,3 +66,11 @@ func load_cards(for_human):
         card_deck.append(create_card(card))
     file.close()
     return card_deck
+
+
+func _on_DropCardsButton_pressed():
+    var label = find_node("DropCardsLabel")
+    label.visible = !label.visible
+    match playing_player:
+        1: $Player1.drop_cards()
+        2: $Player2.drop_cards()

@@ -17,7 +17,7 @@ __meta__ = {
 }
 
 [node name="Cards" parent="." instance=ExtResource( 3 )]
-position = Vector2( 422.99, 28.6351 )
+position = Vector2( 425.323, 84.6199 )
 
 [node name="Player1" parent="." instance=ExtResource( 4 )]
 
@@ -31,4 +31,23 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="DropCardsButton" type="Button" parent="."]
+margin_left = 428.166
+margin_top = 17.0
+margin_right = 605.166
+margin_bottom = 72.0
+text = "Drop Cards"
+
+[node name="DropCardsLabel" type="Label" parent="DropCardsButton"]
+visible = false
+margin_left = -163.646
+margin_top = 366.507
+margin_right = 318.354
+margin_bottom = 432.507
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Select cards which you wanna drop and press 'Drop Cards' button again:
+"
+valign = 1
+
 [connection signal="ready" from="." to="." method="_on_Game_ready"]
+[connection signal="pressed" from="DropCardsButton" to="." method="_on_DropCardsButton_pressed"]
