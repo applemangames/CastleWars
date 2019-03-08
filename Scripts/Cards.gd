@@ -47,17 +47,25 @@ func _process(delta):
                 card.show()
                 card.moving_type = ""
                 card.position += Vector2(0.1, 0.1) 
+                moving_cards.erase(card)
                 
-                if !card.on_start_game:
+                if moving_cards.size() == 0:
                     $"/root/Game/".change_player()
                     
             moving_cards.erase(card)
                 
+func drop_card(card):
+    card.is_played = true
+    card.hide()
+    card.find_node("AnimationPlayer").play_backwards("SelectCard")
+    remove_from_deck(card)
+    move_to_played(card)
 
 func play_card(card):
     card.is_played = true
     remove_from_deck(card)
     move_to_played(card)
+    $"./Status".remove_material(card.currency, card.price)
     
     
 func remove_from_deck(card):
@@ -76,7 +84,6 @@ func move_to_played(card):
     card.move_to_position = goal_pos
     card.moving_type = "to_played"
     moving_cards.append(card)
-    $"./Status".remove_material(card.currency, card.price)
         
     
 func add_card_into_played(card):
@@ -108,7 +115,6 @@ func add_new_card_to_deck(card_position, on_start_game):
     card.moving_type = "to_deck"
     
     moving_cards.append(card)
-    card.on_start_game = on_start_game
     if !on_start_game: 
         card.show()
     
@@ -155,4 +161,11 @@ func select_cards():
  
 func drop_cards():
     drop_mode = false
-    check_cards_prices(deck_cards)
+    var drop_cards = []
+    for card in deck_cards:
+        if card.drop:
+            drop_cards.append(card)
+    
+    for card in drop_cards:
+        drop_card(card)
+    

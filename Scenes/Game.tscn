@@ -47,7 +47,7 @@ margin_top = 366.507
 margin_right = 318.354
 margin_bottom = 432.507
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Select cards which you wanna drop and press 'Drop Cards' button again:
+text = "Select cards which you want to drop and press 'Drop Cards' button again:
 "
 valign = 1
 

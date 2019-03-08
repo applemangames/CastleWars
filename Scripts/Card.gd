@@ -39,7 +39,11 @@ func show():
         $"Front".visible = true
         $"Back".visible = false
         $"Front/Description".visible = true
-        
+
+func hide():
+    $"Front".visible = false
+    $"Back".visible = true
+    $"Front/Description".visible = false  
         
 func disable():
     $"./Front".modulate = Color(0.3,0.3,0.3,1)

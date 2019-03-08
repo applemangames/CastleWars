@@ -30,6 +30,7 @@ margin_bottom = 122.0
 shortcut_in_tooltip = false
 
 [node name="Front" type="Sprite" parent="."]
+visible = false
 position = Vector2( 0.103394, 0.191719 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
@@ -94,7 +95,6 @@ valign = 2
 anims/SelectCard = SubResource( 1 )
 
 [node name="Back" type="Sprite" parent="."]
-visible = false
 position = Vector2( 44.2134, 62.3377 )
 scale = Vector2( 0.5, 0.504472 )
 texture = ExtResource( 3 )
