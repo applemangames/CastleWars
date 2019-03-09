@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/card_front_brown.png-05b2addce64ac3727726c80826b73d37.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

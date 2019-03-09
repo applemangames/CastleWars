@@ -76,7 +76,6 @@ func remove_from_deck(card):
 
 func move_to_played(card):
     add_child(card)
-    
     var goal_pos = $"/root/Game/Cards/Played".position + $"/root/Game/Cards".position
     card.move_from_position = card.position
     card.position += $"CardDeck".rect_position 
@@ -168,4 +167,6 @@ func drop_cards():
     
     for card in drop_cards:
         drop_card(card)
+    
+    check_cards_prices(deck_cards)
     
