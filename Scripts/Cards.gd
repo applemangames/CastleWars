@@ -66,6 +66,7 @@ func play_card(card):
     remove_from_deck(card)
     move_to_played(card)
     $"./Status".remove_material(card.currency, card.price)
+    $"./Status".take_effect_by_description(card.description)
     
     
 func remove_from_deck(card):

@@ -44,10 +44,10 @@ text = "Drop Cards"
 
 [node name="DropCardsLabel" type="Label" parent="DropCardsButton"]
 visible = false
-margin_left = -163.646
-margin_top = 366.507
-margin_right = 318.354
-margin_bottom = 432.507
+margin_left = -167.347
+margin_top = 466.44
+margin_right = 314.653
+margin_bottom = 532.44
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Select cards which you want to drop and press 'Drop Cards' button again:
 "
