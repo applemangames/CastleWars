@@ -21,7 +21,7 @@ func change_tower_start_position():
     var node = get_node("Tower")
     var width = node.texture.get_width()
     var window_width = get_viewport().get_texture().get_width()
-    node.position.x = window_width - node.position.x
+    node.position.x = window_width - (node.position.x + (position.x*2))
     node.position.y = node.position.y
 
 
@@ -30,7 +30,7 @@ func change_status_start_position():
     var image = node.get_node("StatusImage")
     var width = image.texture.get_width() * image.scale.x
     var window_width = get_viewport().get_texture().get_width()
-    node.position.x = window_width - (node.position.x + width)
+    node.position.x = window_width - (node.position.x + width + (position.x*2))
     node.position.y = node.position.y
     
     
@@ -38,7 +38,7 @@ func change_name_start_position(node_name):
     var node = get_node(node_name)
     var width = node.rect_size.x 
     var window_width = get_viewport().get_texture().get_width()
-    node.rect_position.x = window_width - (node.rect_position.x + width*node.rect_scale.x)
+    node.rect_position.x = window_width - (node.rect_position.x + width*node.rect_scale.x + (position.x*2))
     node.rect_position.y = node.rect_position.y
 
 

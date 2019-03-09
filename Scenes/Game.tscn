@@ -10,6 +10,7 @@ script = ExtResource( 1 )
 
 [node name="background" type="Sprite" parent="."]
 position = Vector2( 511.737, 335.635 )
+scale = Vector2( 1.5, 1 )
 z_index = -100
 texture = ExtResource( 2 )
 __meta__ = {
@@ -17,7 +18,7 @@ __meta__ = {
 }
 
 [node name="Cards" parent="." instance=ExtResource( 3 )]
-position = Vector2( 425.323, 84.6199 )
+position = Vector2( 519.705, 88.3211 )
 
 [node name="Player1" parent="." instance=ExtResource( 4 )]
 NAME = "Player 1"
@@ -28,16 +29,17 @@ NAME = "Player 2"
 [node name="background2" type="Sprite" parent="."]
 visible = false
 position = Vector2( 506.474, 769.32 )
+scale = Vector2( 1.5, 1 )
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="DropCardsButton" type="Button" parent="."]
-margin_left = 428.166
-margin_top = 17.0
-margin_right = 605.166
-margin_bottom = 72.0
+margin_left = 570.664
+margin_top = 18.8506
+margin_right = 747.664
+margin_bottom = 73.8506
 text = "Drop Cards"
 
 [node name="DropCardsLabel" type="Label" parent="DropCardsButton"]

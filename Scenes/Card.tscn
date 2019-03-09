@@ -30,18 +30,14 @@ shortcut_in_tooltip = false
 
 [node name="Front" type="Sprite" parent="."]
 position = Vector2( 0.103394, 0.191719 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 2 )
 centered = false
 
 [node name="Description" type="Node2D" parent="Front"]
-visible = false
-position = Vector2( -1.66187, -9.11401 )
-scale = Vector2( 3, 3 )
+position = Vector2( 25.985, 21.928 )
+scale = Vector2( 2, 2 )
 z_index = 10
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Name" type="Label" parent="Front/Description"]
 margin_left = 0.485026
@@ -56,25 +52,24 @@ valign = 1
 autowrap = true
 
 [node name="Node2D" type="Node2D" parent="Front/Description/Name"]
-position = Vector2( 105.682, -56.5404 )
+position = Vector2( 94.5263, -49.5074 )
 scale = Vector2( 0.6, 0.6 )
 
 [node name="Action" type="Label" parent="Front/Description/Name/Node2D"]
-margin_left = -157.956
-margin_top = 152.862
-margin_right = -92.9558
-margin_bottom = 172.862
+margin_left = -139.364
+margin_top = 161.35
+margin_right = -74.3629
+margin_bottom = 181.35
 rect_pivot_offset = Vector2( 50.6652, 17.507 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Utok +3"
-align = 1
 valign = 1
 
 [node name="Price" type="Label" parent="Front/Description"]
-margin_left = 8.81735
-margin_top = 8.02993
-margin_right = 28.8174
-margin_bottom = 24.0299
+margin_left = 2.51194
+margin_top = 1.96703
+margin_right = 22.512
+margin_bottom = 17.967
 size_flags_horizontal = 6
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "8"
@@ -96,8 +91,8 @@ valign = 2
 anims/SelectCard = SubResource( 1 )
 
 [node name="Back" type="Sprite" parent="."]
-position = Vector2( 44.2134, 62.3377 )
-scale = Vector2( 0.5, 0.504472 )
+scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 3 )
+centered = false
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

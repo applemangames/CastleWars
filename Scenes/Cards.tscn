@@ -8,16 +8,16 @@ position = Vector2( 2.29633, -4.02045 )
 
 [node name="Deck" type="Sprite" parent="."]
 position = Vector2( -1.16746, 5.95271 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 1 )
 centered = false
 
 [node name="PlayedImage" type="Sprite" parent="."]
-position = Vector2( 97.1404, 5.70932 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 141.339, 5.70932 )
+scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 2 )
 centered = false
 
 [node name="Played" type="Position2D" parent="."]
-position = Vector2( 98.2191, 7.36641 )
+position = Vector2( 142.418, 7.36641 )
 
