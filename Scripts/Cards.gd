@@ -146,7 +146,7 @@ func check_cards_prices(cards):
         else:
             card.enable()
 
-   
+
 func hide_cards():
     is_playing = false
     get_node("CardDeck").visible = false

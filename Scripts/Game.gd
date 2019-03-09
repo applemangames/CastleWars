@@ -47,6 +47,8 @@ func create_card(card):
     #card.position = $"./../CardDeck".rect_position
     card.find_node("Name").text = card.name
     card.find_node("Price").text = str(card.price)
+    
+    card.find_node("Action").text = card.description
     return card
 
 
@@ -66,6 +68,7 @@ func load_cards(for_human):
         card.name = line[1].strip_edges()
         card.type = line[2].strip_edges()
         card.price = int(line[3].strip_edges())
+        card.description = line[4].split(',').join("\n").strip_edges()
         card.is_human_card = for_human
         card_deck.append(create_card(card))
     file.close()

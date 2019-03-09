@@ -6,6 +6,7 @@ extends Node2D
 var type 
 var price 
 var currency
+var description: String
 var player = 0
 var is_played = false
 var deck_position
