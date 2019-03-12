@@ -56,8 +56,17 @@ func take_effect(target: String, effect: int, enemy: bool = false):
     var result = int(node.text) + effect
     if result > 0:
         node.text = str(result)
+        take_moving_effect(get_player(enemy), target, effect)
     else:
         node.text = "0"
+        take_moving_effect(get_player(enemy), target, effect + result)
+        
+        
+func take_moving_effect(player, target, value):
+    if target == "TowerSize":
+        player.move("Castle", value)
+    elif target == "WallSize":
+        player.move("Wall", value)
         
 
 func make_attack(attack_size: int):
@@ -70,7 +79,7 @@ func make_attack(attack_size: int):
             take_effect("WallSize", -attack_size, true)
         else:
             take_effect("TowerSize", -(attack_size - wall_size), true)
-            wall.text = "0"
+            take_effect("WallSize", -wall_size, true)
     else:
         take_effect("TowerSize", -attack_size, true)
         
@@ -105,3 +114,4 @@ func contains(string: String, sub: String) -> bool:
         return true
     else:
         return false
+        

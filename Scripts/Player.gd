@@ -10,15 +10,27 @@ var lock_cards = false
 func _ready():
     get_node("NameActive").text = NAME
     get_node("NameDeactive").text = NAME
+    move("Castle", float(find_node("TowerSize").text))
+    move("Wall", float(find_node("WallSize").text))
+    
     if name == "Player2":
         change_name_start_position("NameActive")
         change_name_start_position("NameDeactive")
         change_tower_start_position()
+        change_wall_start_position()
         change_status_start_position()
         
 
 func change_tower_start_position():
-    var node = get_node("Tower")
+    var node = get_node("Castle")
+    var width = node.texture.get_width()
+    var window_width = get_viewport().get_texture().get_width()
+    node.position.x = window_width - (node.position.x + (position.x*2))
+    node.position.y = node.position.y
+
+
+func change_wall_start_position():
+    var node = get_node("Wall")
     var width = node.texture.get_width()
     var window_width = get_viewport().get_texture().get_width()
     node.position.x = window_width - (node.position.x + (position.x*2))
@@ -51,4 +63,15 @@ func deactive():
     get_node("NameDeactive").visible = true
 
 
+func move(type, value):
+    self.get_node(type).position.y -= float(value) * get_cons(type)
+    
+  
+func get_cons(type):
+    if type == "Castle":
+        return 2.0
+    elif type == "Wall":
+        return 3.0
+    else:
+        return 
     

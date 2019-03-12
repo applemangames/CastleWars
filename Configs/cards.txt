@@ -13,7 +13,7 @@
 | Knight           | soldier | 2     | attack 3                                 |
 | Rider            | soldier | 3     | attack 4                                 |
 | Platoon          | soldier | 4     | attack 6                                 |
-| Catapult         | soldier | 6     | attack 12                                |
+| Catapult         | soldier | 10     | attack 12                                |
 | Recruit          | soldier | 8     | soldier +1                               |
 | Saboteur         | soldier | 12    | enemy.resources -8                       |
 | Thief            | soldier | 15    | resources +5, enemy.resources -5         |
