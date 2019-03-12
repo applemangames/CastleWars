@@ -58,8 +58,9 @@ func take_effect(target: String, effect: int, enemy: bool = false):
         node.text = str(result)
         take_moving_effect(get_player(enemy), target, effect)
     else:
-        node.text = "0"
-        take_moving_effect(get_player(enemy), target, effect + result)
+        if node.text != "0":
+            node.text = "0"
+            take_moving_effect(get_player(enemy), target, effect + result)
         
         
 func take_moving_effect(player, target, value):
